@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "WorldPosition.h"
+#include "GameFramework/Actor.h"
 
 // Sets default values for this component's properties
 UWorldPosition::UWorldPosition()
@@ -17,15 +18,18 @@ void UWorldPosition::BeginPlay()
 {
 	Super::BeginPlay();
 
-	FString Log = TEXT("Executing game");
-	FString *PrtLog = &Log;
-
+	// FString Log = TEXT("Executing game");
+	// FString *PrtLog = &Log;
 	// Log.Len();
-
 	// (*PrtLog).Len();
 	// PrtLog->Len();
+	// UE_LOG(LogTemp, Warning, TEXT("%s"), **PrtLog);
 
-	UE_LOG(LogTemp, Warning, TEXT("%s"), **PrtLog);
+	FString ObjectName = GetOwner()->GetName();
+
+	UE_LOG(LogTemp, Warning, TEXT("%s"), *ObjectName);
+	// UE_LOG(LogTemp, Warning, TEXT("%s"), *GetOwner()->GetName()); Same withouth reutilizable variable
+
 }
 
 // Called every frame
