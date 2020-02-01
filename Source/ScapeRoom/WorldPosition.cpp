@@ -17,7 +17,15 @@ void UWorldPosition::BeginPlay()
 {
 	Super::BeginPlay();
 
-	UE_LOG(LogTemp, Warning, TEXT("Executing game"));
+	FString Log = TEXT("Executing game");
+	FString *PrtLog = &Log;
+
+	// Log.Len();
+
+	// (*PrtLog).Len();
+	// PrtLog->Len();
+
+	UE_LOG(LogTemp, Warning, TEXT("%s"), **PrtLog);
 }
 
 // Called every frame
